@@ -18,8 +18,11 @@ jobs:
       - name: 'Dependency Review with License Exception'
         uses: actions/dependency-review-action@v4
         with:
-          # Deny GPL licenses globally
+          # Deny GPL and MIT licenses globally
           deny-licenses: GPL-2.0, GPL-3.0, LGPL-2.0, LGPL-3.0, MIT
           # But allow specific packages with GPL licenses
-          allow-dependencies-licenses: 'pkg:npm/readline-sync, pkg:pypi/gplearn, pkg:npm/@netdata/charts'
+          allow-dependencies-licenses: |
+            pkg:npm/readline-sync,
+            pkg:pypi/gplearn,
+            pkg:npm/@netdata/charts
           comment-summary-in-pr: always
